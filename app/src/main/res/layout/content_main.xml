@@ -9,21 +9,39 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/app_bar_main"
     tools:context=".MainActivity">
 
-    <TextView android:text="Hello World!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Zhihu DB"
-        android:id="@+id/zhihuDB_button"/>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="JRAW"
-        android:id="@+id/JRAW"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView android:text="Hello World!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Zhihu DB"
+            android:id="@+id/zhihuDB_button"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="JRAW"
+            android:id="@+id/JRAW"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Bmob"
+            android:id="@+id/bmob"/>
+
+    </LinearLayout>
+
+
 </RelativeLayout>

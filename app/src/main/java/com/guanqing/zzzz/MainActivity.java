@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+        Button button_bmob = (Button)findViewById(R.id.bmob);
+        button_bmob.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
     }
 
     @Override
