@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import net.dean.jraw.RedditClient;
 import net.dean.jraw.http.NetworkException;
@@ -28,8 +27,8 @@ public class JrawActivity extends AppCompatActivity{
 
     WebView webView;
     int loadCount = 0;
-    String username = "1";
-    String password = "2";
+    String username = "besttth9";
+    String password = "besttth3";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,6 +62,7 @@ public class JrawActivity extends AppCompatActivity{
         webView.addJavascriptInterface(new jsInterface(), "HTMLOUT");
 
         webView.setWebViewClient(new WebViewClient() {
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 if (loadCount == 0) {
@@ -78,16 +78,23 @@ public class JrawActivity extends AppCompatActivity{
                     webView.loadUrl("javascript:document.getElementsByClassName('fancybutton newbutton allow')[0].click();");
                     loadCount++;
                 }
+
+                //log out
+                else if (loadCount == 2) {
+                    webView.loadUrl("https://www.reddit.com/");
+                    loadCount++;
+                } else {
+                    webView.loadUrl("javascript:document.forms[0].submit();");
+                    onBackPressed();
+                }
             }
         });
         webView.loadUrl(authorizationUrl.toExternalForm());
 
-       /* if(!webView.getUrl().equals("http://haoguanqing.github.io/Tests-Misc-for-Android/")){
-            Toast.makeText(JrawActivity.this, "WRONG!!!", Toast.LENGTH_SHORT);
-        }else{
-            Toast.makeText(JrawActivity.this, "GJ!!!", Toast.LENGTH_SHORT);
-        }
-        onBackPressed();*/
+
+        //off the screen
+//        WebView webView = new WebView(getApplicationContext());
+//        webView.loadUrl("your-url");
     }
 
     private static final class UserChallengeTask extends AsyncTask<String, Void, OAuthData>{
