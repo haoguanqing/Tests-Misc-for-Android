@@ -68,6 +68,14 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
+
+        Button button_retrofit = (Button)findViewById(R.id.retrofit);
+        button_retrofit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RetrofitActivity.class));
+            }
+        });
     }
 
     @Override

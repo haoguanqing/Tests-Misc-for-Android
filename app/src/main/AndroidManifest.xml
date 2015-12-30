@@ -49,6 +49,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.guanqing.zzzz.MainActivity" />
         </activity>
+        <activity
+            android:name=".RetrofitActivity"
+            android:label="@string/title_activity_retrofit"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.guanqing.zzzz.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

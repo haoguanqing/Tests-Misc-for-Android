@@ -10,10 +10,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Guanqing on 2015/12/30.
- */
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "id",
@@ -27,13 +23,9 @@ import java.util.Map;
         "size",
         "views",
         "bandwidth",
-        "vote",
         "favorite",
         "nsfw",
         "section",
-        "account_url",
-        "account_id",
-        "comment_preview",
         "gifv",
         "webm",
         "mp4",
@@ -47,37 +39,29 @@ public class Data {
     @JsonProperty("title")
     private String title;
     @JsonProperty("description")
-    private Object description;
+    private String description;
     @JsonProperty("datetime")
-    private Long datetime;
+    private Integer datetime;
     @JsonProperty("type")
     private String type;
     @JsonProperty("animated")
     private Boolean animated;
     @JsonProperty("width")
-    private Long width;
+    private Integer width;
     @JsonProperty("height")
-    private Long height;
+    private Integer height;
     @JsonProperty("size")
-    private Long size;
+    private Integer size;
     @JsonProperty("views")
-    private Long views;
+    private Integer views;
     @JsonProperty("bandwidth")
-    private Long bandwidth;
-    @JsonProperty("vote")
-    private Object vote;
+    private Integer bandwidth;
     @JsonProperty("favorite")
     private Boolean favorite;
     @JsonProperty("nsfw")
     private Boolean nsfw;
     @JsonProperty("section")
     private String section;
-    @JsonProperty("account_url")
-    private Object accountUrl;
-    @JsonProperty("account_id")
-    private Object accountId;
-    @JsonProperty("comment_preview")
-    private Object commentPreview;
     @JsonProperty("gifv")
     private String gifv;
     @JsonProperty("webm")
@@ -137,7 +121,7 @@ public class Data {
      * The description
      */
     @JsonProperty("description")
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
@@ -147,7 +131,7 @@ public class Data {
      * The description
      */
     @JsonProperty("description")
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -157,7 +141,7 @@ public class Data {
      * The datetime
      */
     @JsonProperty("datetime")
-    public Long getDatetime() {
+    public Integer getDatetime() {
         return datetime;
     }
 
@@ -167,7 +151,7 @@ public class Data {
      * The datetime
      */
     @JsonProperty("datetime")
-    public void setDatetime(Long datetime) {
+    public void setDatetime(Integer datetime) {
         this.datetime = datetime;
     }
 
@@ -217,7 +201,7 @@ public class Data {
      * The width
      */
     @JsonProperty("width")
-    public Long getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
@@ -227,7 +211,7 @@ public class Data {
      * The width
      */
     @JsonProperty("width")
-    public void setWidth(Long width) {
+    public void setWidth(Integer width) {
         this.width = width;
     }
 
@@ -237,7 +221,7 @@ public class Data {
      * The height
      */
     @JsonProperty("height")
-    public Long getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
@@ -247,7 +231,7 @@ public class Data {
      * The height
      */
     @JsonProperty("height")
-    public void setHeight(Long height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
@@ -257,7 +241,7 @@ public class Data {
      * The size
      */
     @JsonProperty("size")
-    public Long getSize() {
+    public Integer getSize() {
         return size;
     }
 
@@ -267,7 +251,7 @@ public class Data {
      * The size
      */
     @JsonProperty("size")
-    public void setSize(Long size) {
+    public void setSize(Integer size) {
         this.size = size;
     }
 
@@ -277,7 +261,7 @@ public class Data {
      * The views
      */
     @JsonProperty("views")
-    public Long getViews() {
+    public Integer getViews() {
         return views;
     }
 
@@ -287,7 +271,7 @@ public class Data {
      * The views
      */
     @JsonProperty("views")
-    public void setViews(Long views) {
+    public void setViews(Integer views) {
         this.views = views;
     }
 
@@ -297,7 +281,7 @@ public class Data {
      * The bandwidth
      */
     @JsonProperty("bandwidth")
-    public Long getBandwidth() {
+    public Integer getBandwidth() {
         return bandwidth;
     }
 
@@ -307,28 +291,8 @@ public class Data {
      * The bandwidth
      */
     @JsonProperty("bandwidth")
-    public void setBandwidth(Long bandwidth) {
+    public void setBandwidth(Integer bandwidth) {
         this.bandwidth = bandwidth;
-    }
-
-    /**
-     *
-     * @return
-     * The vote
-     */
-    @JsonProperty("vote")
-    public Object getVote() {
-        return vote;
-    }
-
-    /**
-     *
-     * @param vote
-     * The vote
-     */
-    @JsonProperty("vote")
-    public void setVote(Object vote) {
-        this.vote = vote;
     }
 
     /**
@@ -389,66 +353,6 @@ public class Data {
     @JsonProperty("section")
     public void setSection(String section) {
         this.section = section;
-    }
-
-    /**
-     *
-     * @return
-     * The accountUrl
-     */
-    @JsonProperty("account_url")
-    public Object getAccountUrl() {
-        return accountUrl;
-    }
-
-    /**
-     *
-     * @param accountUrl
-     * The account_url
-     */
-    @JsonProperty("account_url")
-    public void setAccountUrl(Object accountUrl) {
-        this.accountUrl = accountUrl;
-    }
-
-    /**
-     *
-     * @return
-     * The accountId
-     */
-    @JsonProperty("account_id")
-    public Object getAccountId() {
-        return accountId;
-    }
-
-    /**
-     *
-     * @param accountId
-     * The account_id
-     */
-    @JsonProperty("account_id")
-    public void setAccountId(Object accountId) {
-        this.accountId = accountId;
-    }
-
-    /**
-     *
-     * @return
-     * The commentPreview
-     */
-    @JsonProperty("comment_preview")
-    public Object getCommentPreview() {
-        return commentPreview;
-    }
-
-    /**
-     *
-     * @param commentPreview
-     * The comment_preview
-     */
-    @JsonProperty("comment_preview")
-    public void setCommentPreview(Object commentPreview) {
-        this.commentPreview = commentPreview;
     }
 
     /**
