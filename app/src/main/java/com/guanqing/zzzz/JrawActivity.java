@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -65,6 +66,7 @@ public class JrawActivity extends AppCompatActivity{
 
             @Override
             public void onPageFinished(WebView view, String url) {
+                Log.e("HGQ", "onPageFinished: " + url);
                 if (loadCount == 0) {
                     String getButtonJS = "javascript:var els = document.getElementsByClassName('c-btn c-btn-primary c-pull-right');" +
                             "javascript:els[1].click();";
@@ -80,13 +82,13 @@ public class JrawActivity extends AppCompatActivity{
                 }
 
                 //log out
-                else if (loadCount == 2) {
+/*                else if (loadCount == 2) {
                     webView.loadUrl("https://www.reddit.com/");
                     loadCount++;
                 } else {
                     webView.loadUrl("javascript:document.forms[0].submit();");
                     onBackPressed();
-                }
+                }*/
             }
         });
         webView.loadUrl(authorizationUrl.toExternalForm());

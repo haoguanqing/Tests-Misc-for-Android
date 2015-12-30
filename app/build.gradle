@@ -40,4 +40,7 @@ dependencies {
     compile 'cn.bmob.android:bmob-sdk:3.4.5'
 
     compile 'com.wang.avi:library:1.0.1'
+
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile "com.squareup.retrofit:converter-jackson:2.0.0-beta2"
 }
