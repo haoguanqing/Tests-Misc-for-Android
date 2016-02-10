@@ -1,5 +1,4 @@
-package com.guanqing.zzzz.retrofit;
-
+package com.guanqing.zzzz.retrofit.Imgur;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -22,14 +21,16 @@ public class ImgurImage {
     @JsonProperty("data")
     private Data data;
     @JsonProperty("success")
-    private Boolean success;
+    private boolean success;
     @JsonProperty("status")
-    private Long status;
+    private int status;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     * @return The data
+     *
+     * @return
+     * The data
      */
     @JsonProperty("data")
     public Data getData() {
@@ -37,7 +38,9 @@ public class ImgurImage {
     }
 
     /**
-     * @param data The data
+     *
+     * @param data
+     * The data
      */
     @JsonProperty("data")
     public void setData(Data data) {
@@ -45,34 +48,42 @@ public class ImgurImage {
     }
 
     /**
-     * @return The success
+     *
+     * @return
+     * The success
      */
     @JsonProperty("success")
-    public Boolean getSuccess() {
+    public boolean isSuccess() {
         return success;
     }
 
     /**
-     * @param success The success
+     *
+     * @param success
+     * The success
      */
     @JsonProperty("success")
-    public void setSuccess(Boolean success) {
+    public void setSuccess(boolean success) {
         this.success = success;
     }
 
     /**
-     * @return The status
+     *
+     * @return
+     * The status
      */
     @JsonProperty("status")
-    public Long getStatus() {
+    public int getStatus() {
         return status;
     }
 
     /**
-     * @param status The status
+     *
+     * @param status
+     * The status
      */
     @JsonProperty("status")
-    public void setStatus(Long status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -85,4 +96,5 @@ public class ImgurImage {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
+
 }

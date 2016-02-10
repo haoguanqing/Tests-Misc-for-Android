@@ -48,6 +48,20 @@
             android:text="Retrofit"
             android:id="@+id/retrofit"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Imgur"
+            android:id="@+id/imgur"/>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicator_color="@android:color/darker_gray"
+            app:indicator="Pacman"/>
+
     </LinearLayout>
 
 

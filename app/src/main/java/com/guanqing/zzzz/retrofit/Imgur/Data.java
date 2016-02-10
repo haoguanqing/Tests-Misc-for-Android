@@ -1,4 +1,4 @@
-package com.guanqing.zzzz.retrofit;
+package com.guanqing.zzzz.retrofit.Imgur;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -13,6 +13,8 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "id",
+        "name",
+        "deletehash",
         "title",
         "description",
         "datetime",
@@ -30,36 +32,44 @@ import java.util.Map;
         "webm",
         "mp4",
         "link",
-        "looping"
+        "looping",
+        "vote",
+        "account_url",
+        "account_id",
+        "comment_preview"
 })
 public class Data {
 
     @JsonProperty("id")
     private String id;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("deletehash")
+    private String deletehash;
     @JsonProperty("title")
     private String title;
     @JsonProperty("description")
     private String description;
     @JsonProperty("datetime")
-    private Integer datetime;
+    private int datetime;
     @JsonProperty("type")
     private String type;
     @JsonProperty("animated")
-    private Boolean animated;
+    private boolean animated;
     @JsonProperty("width")
-    private Integer width;
+    private int width;
     @JsonProperty("height")
-    private Integer height;
+    private int height;
     @JsonProperty("size")
-    private Integer size;
+    private int size;
     @JsonProperty("views")
-    private Integer views;
+    private int views;
     @JsonProperty("bandwidth")
-    private Integer bandwidth;
+    private long bandwidth;
     @JsonProperty("favorite")
-    private Boolean favorite;
+    private boolean favorite;
     @JsonProperty("nsfw")
-    private Boolean nsfw;
+    private boolean nsfw;
     @JsonProperty("section")
     private String section;
     @JsonProperty("gifv")
@@ -71,7 +81,15 @@ public class Data {
     @JsonProperty("link")
     private String link;
     @JsonProperty("looping")
-    private Boolean looping;
+    private boolean looping;
+    @JsonProperty("vote")
+    private String vote;
+    @JsonProperty("account_url")
+    private String accountUrl;
+    @JsonProperty("account_id")
+    private String accountId;
+    @JsonProperty("comment_preview")
+    private String commentPreview;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -93,6 +111,46 @@ public class Data {
     @JsonProperty("id")
     public void setId(String id) {
         this.id = id;
+    }
+
+    /**
+     *
+     * @return
+     * The name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param name
+     * The name
+     */
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     *
+     * @return
+     * The deletehash
+     */
+    @JsonProperty("deletehash")
+    public String getDeletehash() {
+        return deletehash;
+    }
+
+    /**
+     *
+     * @param deletehash
+     * The deletehash
+     */
+    @JsonProperty("deletehash")
+    public void setDeletehash(String deletehash) {
+        this.deletehash = deletehash;
     }
 
     /**
@@ -141,7 +199,7 @@ public class Data {
      * The datetime
      */
     @JsonProperty("datetime")
-    public Integer getDatetime() {
+    public int getDatetime() {
         return datetime;
     }
 
@@ -151,7 +209,7 @@ public class Data {
      * The datetime
      */
     @JsonProperty("datetime")
-    public void setDatetime(Integer datetime) {
+    public void setDatetime(int datetime) {
         this.datetime = datetime;
     }
 
@@ -181,7 +239,7 @@ public class Data {
      * The animated
      */
     @JsonProperty("animated")
-    public Boolean getAnimated() {
+    public boolean isAnimated() {
         return animated;
     }
 
@@ -191,7 +249,7 @@ public class Data {
      * The animated
      */
     @JsonProperty("animated")
-    public void setAnimated(Boolean animated) {
+    public void setAnimated(boolean animated) {
         this.animated = animated;
     }
 
@@ -201,7 +259,7 @@ public class Data {
      * The width
      */
     @JsonProperty("width")
-    public Integer getWidth() {
+    public int getWidth() {
         return width;
     }
 
@@ -211,7 +269,7 @@ public class Data {
      * The width
      */
     @JsonProperty("width")
-    public void setWidth(Integer width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
@@ -221,7 +279,7 @@ public class Data {
      * The height
      */
     @JsonProperty("height")
-    public Integer getHeight() {
+    public int getHeight() {
         return height;
     }
 
@@ -231,7 +289,7 @@ public class Data {
      * The height
      */
     @JsonProperty("height")
-    public void setHeight(Integer height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
@@ -241,7 +299,7 @@ public class Data {
      * The size
      */
     @JsonProperty("size")
-    public Integer getSize() {
+    public int getSize() {
         return size;
     }
 
@@ -251,7 +309,7 @@ public class Data {
      * The size
      */
     @JsonProperty("size")
-    public void setSize(Integer size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
@@ -261,7 +319,7 @@ public class Data {
      * The views
      */
     @JsonProperty("views")
-    public Integer getViews() {
+    public int getViews() {
         return views;
     }
 
@@ -271,7 +329,7 @@ public class Data {
      * The views
      */
     @JsonProperty("views")
-    public void setViews(Integer views) {
+    public void setViews(int views) {
         this.views = views;
     }
 
@@ -281,7 +339,7 @@ public class Data {
      * The bandwidth
      */
     @JsonProperty("bandwidth")
-    public Integer getBandwidth() {
+    public long getBandwidth() {
         return bandwidth;
     }
 
@@ -291,7 +349,7 @@ public class Data {
      * The bandwidth
      */
     @JsonProperty("bandwidth")
-    public void setBandwidth(Integer bandwidth) {
+    public void setBandwidth(long bandwidth) {
         this.bandwidth = bandwidth;
     }
 
@@ -301,7 +359,7 @@ public class Data {
      * The favorite
      */
     @JsonProperty("favorite")
-    public Boolean getFavorite() {
+    public boolean isFavorite() {
         return favorite;
     }
 
@@ -311,7 +369,7 @@ public class Data {
      * The favorite
      */
     @JsonProperty("favorite")
-    public void setFavorite(Boolean favorite) {
+    public void setFavorite(boolean favorite) {
         this.favorite = favorite;
     }
 
@@ -321,7 +379,7 @@ public class Data {
      * The nsfw
      */
     @JsonProperty("nsfw")
-    public Boolean getNsfw() {
+    public boolean isNsfw() {
         return nsfw;
     }
 
@@ -331,7 +389,7 @@ public class Data {
      * The nsfw
      */
     @JsonProperty("nsfw")
-    public void setNsfw(Boolean nsfw) {
+    public void setNsfw(boolean nsfw) {
         this.nsfw = nsfw;
     }
 
@@ -441,7 +499,7 @@ public class Data {
      * The looping
      */
     @JsonProperty("looping")
-    public Boolean getLooping() {
+    public boolean isLooping() {
         return looping;
     }
 
@@ -451,8 +509,88 @@ public class Data {
      * The looping
      */
     @JsonProperty("looping")
-    public void setLooping(Boolean looping) {
+    public void setLooping(boolean looping) {
         this.looping = looping;
+    }
+
+    /**
+     *
+     * @return
+     * The vote
+     */
+    @JsonProperty("vote")
+    public String getVote() {
+        return vote;
+    }
+
+    /**
+     *
+     * @param vote
+     * The vote
+     */
+    @JsonProperty("vote")
+    public void setVote(String vote) {
+        this.vote = vote;
+    }
+
+    /**
+     *
+     * @return
+     * The accountUrl
+     */
+    @JsonProperty("account_url")
+    public String getAccountUrl() {
+        return accountUrl;
+    }
+
+    /**
+     *
+     * @param accountUrl
+     * The account_url
+     */
+    @JsonProperty("account_url")
+    public void setAccountUrl(String accountUrl) {
+        this.accountUrl = accountUrl;
+    }
+
+    /**
+     *
+     * @return
+     * The accountId
+     */
+    @JsonProperty("account_id")
+    public String getAccountId() {
+        return accountId;
+    }
+
+    /**
+     *
+     * @param accountId
+     * The account_id
+     */
+    @JsonProperty("account_id")
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    /**
+     *
+     * @return
+     * The commentPreview
+     */
+    @JsonProperty("comment_preview")
+    public String getCommentPreview() {
+        return commentPreview;
+    }
+
+    /**
+     *
+     * @param commentPreview
+     * The comment_preview
+     */
+    @JsonProperty("comment_preview")
+    public void setCommentPreview(String commentPreview) {
+        this.commentPreview = commentPreview;
     }
 
     @JsonAnyGetter

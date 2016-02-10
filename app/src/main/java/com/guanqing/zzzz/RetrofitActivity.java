@@ -14,7 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.guanqing.zzzz.retrofit.ImgurService;
+import com.bumptech.glide.Glide;
+import com.guanqing.zzzz.retrofit.Imgur.ImgurService;
 
 import org.json.JSONObject;
 
@@ -37,10 +38,11 @@ public class RetrofitActivity extends AppCompatActivity {
         final ImageView ivTest = (ImageView)findViewById(R.id.ivTest);
         final TextView tvTest = (TextView)findViewById(R.id.tvTest);
         final VideoView videoView = (VideoView)findViewById(R.id.vvTest);
+        final VideoView videoView2 = (VideoView)findViewById(R.id.vvTest2);
         setSupportActionBar(toolbar);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.imgur.com/3")
+                .baseUrl("https://api.imgur.com")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
         service = retrofit.create(ImgurService.class);
@@ -50,19 +52,19 @@ public class RetrofitActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                new AsyncTask<String, Void, String>(){
+                new AsyncTask<String, Void, String>() {
                     @Override
                     protected String doInBackground(String... params) {
                         String url = null;
-                        try{
+                        try {
                             url = getImageLink(params[0]);
                             Snackbar.make(view, url, Snackbar.LENGTH_LONG)
                                     .setAction("Action", null).show();
                             return url;
-                        }catch (FileNotFoundException e){
+                        } catch (FileNotFoundException e) {
                             url = params[0].replace("imgur.com", "i.imgur.com") + ".mp4";
                             return url;
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         return null;
@@ -71,14 +73,16 @@ public class RetrofitActivity extends AppCompatActivity {
                     @Override
                     protected void onPostExecute(String s) {
                         super.onPostExecute(s);
-                        /*Glide.with(getApplicationContext()).load(s).into(ivTest);
-                        ivTest.invalidate();*/
-                        Uri uri = Uri.parse(s);
+                        Glide.with(getApplicationContext()).load(s).into(ivTest);
+                        ivTest.invalidate();
+                        Uri uri = Uri.parse("http://i.imgur.com/fYNRbM3.mp4");
                         videoView.setVideoURI(uri);
                         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                             @Override
                             public void onPrepared(MediaPlayer mp) {
+                                videoView.setVisibility(View.VISIBLE);
                                 mp.setLooping(true);
+                                videoView.start();
                             }
                         });
                         videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
@@ -88,43 +92,23 @@ public class RetrofitActivity extends AppCompatActivity {
                                 return false;
                             }
                         });
-                        videoView.start();
                     }
-                }.execute("http://imgur.com/ps4X35C");
+                }.execute("http://imgur.com/xj6azwG");
 
-
-                /*Call call = service.getData("o4a1Udb");
-                call.enqueue(new Callback<ImgurImage>() {
-                    @Override
-                    public void onResponse(Response<ImgurImage> response, Retrofit retrofit) {
-                        ImgurImage image = response.body();
-
-                        if (image == null) {
-                            //404 or the response cannot be converted to User.
-                            ResponseBody responseBody = response.errorBody();
-                            if (responseBody != null) {
-                                try {
-                                    tvTest.setText("responseBody = " + responseBody.string());
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            } else {
-                                tvTest.setText("responseBody = null");
-                            }
-                        } else {
-                            //200
-                            Glide.with(getApplicationContext()).load(image.getData().getLink()).into(ivTest);
-                            tvTest.setText("url : " + image.getData().getLink());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Throwable t) {
-                        tvTest.setText("t = " + t.getMessage());
-                    }
-                });*/
             }
         });
+
+        Uri uri2 = Uri.parse("http://i.imgur.com/fYNRbM3.mp4");
+        videoView2.setVideoURI(uri2);
+        videoView2.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+                videoView2.start();
+            }
+        });
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

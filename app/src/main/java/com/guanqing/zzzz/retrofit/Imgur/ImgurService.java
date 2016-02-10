@@ -1,7 +1,8 @@
-package com.guanqing.zzzz.retrofit;
+package com.guanqing.zzzz.retrofit.Imgur;
 
 import retrofit.Call;
 import retrofit.http.GET;
+import retrofit.http.Headers;
 import retrofit.http.Path;
 
 /**
@@ -9,6 +10,7 @@ import retrofit.http.Path;
  */
 public interface ImgurService {
 
-    @GET("/image/{id}")
+    @Headers("Authorization: Client-ID " + ServiceClient.IMGUR_CLIENT_ID)
+    @GET("/3/image/{id}")
     Call<ImgurImage> getData(@Path("id") String imageId);
 }

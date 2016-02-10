@@ -76,6 +76,14 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, RetrofitActivity.class));
             }
         });
+
+        Button button_imgur = (Button)findViewById(R.id.imgur);
+        button_imgur.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ImgurActivity.class));
+            }
+        });
     }
 
     @Override

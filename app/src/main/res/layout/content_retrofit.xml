@@ -28,7 +28,16 @@
     <VideoView
         android:id="@+id/vvTest"
         android:elevation="12dp"
+        android:visibility="visible"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="200dp" />
+
+    <VideoView
+        android:id="@+id/vvTest2"
+        android:elevation="12dp"
+        android:visibility="visible"
+        android:layout_marginTop="220dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
 </RelativeLayout>
