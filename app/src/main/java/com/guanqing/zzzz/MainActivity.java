@@ -84,6 +84,14 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, ImgurActivity.class));
             }
         });
+
+        Button button_thread = (Button)findViewById(R.id.thread);
+        button_thread.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HandlerActivity.class));
+            }
+        });
     }
 
     @Override

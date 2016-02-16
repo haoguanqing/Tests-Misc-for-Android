@@ -58,7 +58,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.guanqing.zzzz.MainActivity" />
         </activity>
-
         <activity
             android:name=".ImgurActivity"
             android:label="Imgur"
@@ -68,6 +67,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.guanqing.zzzz.MainActivity" />
         </activity>
+        <activity android:name=".HandlerActivity"></activity>
     </application>
 
 </manifest>

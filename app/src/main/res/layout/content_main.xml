@@ -55,6 +55,13 @@
             android:text="Imgur"
             android:id="@+id/imgur"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="thread"
+            android:id="@+id/thread"/>
+
         <com.wang.avi.AVLoadingIndicatorView
             android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
