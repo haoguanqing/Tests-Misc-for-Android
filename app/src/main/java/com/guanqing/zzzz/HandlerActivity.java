@@ -25,7 +25,8 @@ public class HandlerActivity extends AppCompatActivity {
     Handler handler;
     private Thread thread;
 
-    int count;
+    private int count;
+    private boolean isRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,25 +35,27 @@ public class HandlerActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         handler = new Handler(Looper.getMainLooper());
-        count = 0;
 
         setListeners();
         if (savedInstanceState != null){
             count = savedInstanceState.getInt("COUNT");
-            boolean isInterrupted = savedInstanceState.getBoolean("INTERRUPTED");
-            Log.d("HGQ", "saved instance not null. Count = " + count + ", interrupted = " + isInterrupted);
+            isRunning = savedInstanceState.getBoolean("INTERRUPTED");
+            Log.d("HGQ", "saved instance not null. Count = " + count + ", interrupted = " + isRunning);
             tvThread.setText(Integer.toString(count));
             thread = new Thread(new MyRunnable(count));
-            if (!isInterrupted){
+            if (isRunning){
                 thread.start();
             }
+        } else{
+            count = 0;
+            isRunning = false;
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("COUNT", count);
-        outState.putBoolean("INTERRUPTED", thread.isInterrupted());
+        outState.putBoolean("INTERRUPTED", isRunning);
         thread.interrupt();
         super.onSaveInstanceState(outState);
     }
@@ -64,6 +67,7 @@ public class HandlerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 thread = new Thread(new MyRunnable(count));
                 thread.start();
+                isRunning = true;
             }
         });
 
@@ -71,6 +75,7 @@ public class HandlerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 thread.interrupt();
+                isRunning = false;
             }
         });
     }
@@ -103,7 +108,8 @@ public class HandlerActivity extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        tvThread.setText("Interrupted at " +Integer.toString(i));
+                        tvThread.setText(Integer.toString(i));
+                        Log.d("HGQ", "Interrupted at " +Integer.toString(i));
                     }
                 });
             }
