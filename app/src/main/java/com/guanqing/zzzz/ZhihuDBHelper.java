@@ -34,6 +34,7 @@ public class ZhihuDBHelper extends SQLiteOpenHelper {
     public List<String> getAllTitles(){
         List<String> titleList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
+
         Cursor cursor = db.query(TABLE_NAME, new String[]{"_title"}, null, null, null, null, null);
         if (cursor!=null){
             cursor.moveToFirst();

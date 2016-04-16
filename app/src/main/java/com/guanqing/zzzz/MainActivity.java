@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.guanqing.zzzz.broadcast.BroadcastActivity;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -90,6 +92,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HandlerActivity.class));
+            }
+        });
+
+        Button button_broadcast = (Button)findViewById(R.id.broadcast);
+        button_broadcast.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, BroadcastActivity.class));
             }
         });
     }

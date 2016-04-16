@@ -103,8 +103,8 @@
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="guava-18.0" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="retrofit-2.0.0-beta4" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="adapter-rxjava-2.0.0-beta4" level="project" />
     <orderEntry type="library" exported="" name="retrofit-2.0.0-beta2" level="project" />
     <orderEntry type="library" exported="" name="okhttp-3.0.1" level="project" />
@@ -113,7 +113,6 @@
     <orderEntry type="library" exported="" name="rxjava-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="design-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-databind-2.5.0" level="project" />
-    <orderEntry type="library" exported="" name="bmob-sdk-3.4.5" level="project" />
     <orderEntry type="library" exported="" name="JRAW-0.7.1" level="project" />
     <orderEntry type="library" exported="" name="slf4j-api-1.7.10" level="project" />
     <orderEntry type="module" module-name="imgur_models" exported="" />

@@ -67,7 +67,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.guanqing.zzzz.MainActivity" />
         </activity>
-        <activity android:name=".HandlerActivity"></activity>
+        <activity android:name=".HandlerActivity" />
+        <activity android:name=".broadcast.BroadcastActivity"></activity>
+
+        <receiver android:name=".broadcast.MyReciever">
+            <intent-filter
+                android:priority="200">
+                <action android:name="BC_NORMAL"></action>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".broadcast.MyReciever2">
+            <intent-filter
+                android:priority="100">
+                <action android:name="BC_NORMAL"></action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

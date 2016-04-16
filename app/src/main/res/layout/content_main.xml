@@ -16,10 +16,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView android:text="Hello World!"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,6 +57,13 @@
             android:layout_marginTop="4dp"
             android:text="thread"
             android:id="@+id/thread"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="broadcast"
+            android:id="@+id/broadcast"/>
 
         <com.wang.avi.AVLoadingIndicatorView
             android:layout_marginTop="4dp"
