@@ -56,15 +56,24 @@ public class HandlerActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("COUNT", count);
         outState.putBoolean("INTERRUPTED", isRunning);
-        thread.interrupt();
+        if (thread != null) {
+            thread.interrupt();
+            thread = null;
+        }
         super.onSaveInstanceState(outState);
     }
 
     private void setListeners(){
-
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (isRunning){
+                    return;
+                }
+                if (thread != null){
+                    thread.interrupt();
+                    thread = null;
+                }
                 thread = new Thread(new MyRunnable(count));
                 thread.start();
                 isRunning = true;
@@ -74,7 +83,13 @@ public class HandlerActivity extends AppCompatActivity {
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                thread.interrupt();
+                if (!isRunning){
+                    return;
+                }
+                if (thread != null){
+                    thread.interrupt();
+                    thread = null;
+                }
                 isRunning = false;
             }
         });
@@ -92,8 +107,8 @@ public class HandlerActivity extends AppCompatActivity {
             android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
 
             try {
-                while (i < 500) {
-                    Thread.sleep(1000);
+                while (i < 3600) {
+                    Thread.sleep(200);
                     Log.d("HGQ", i++ + "");
 
                     handler.post(new Runnable() {
