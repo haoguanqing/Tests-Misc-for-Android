@@ -68,22 +68,22 @@
                 android:value="com.guanqing.zzzz.MainActivity" />
         </activity>
         <activity android:name=".HandlerActivity" />
-        <activity android:name=".broadcast.BroadcastActivity"></activity>
+        <activity android:name=".broadcast.BroadcastActivity" />
 
         <receiver android:name=".broadcast.MyReciever">
-            <intent-filter
-                android:priority="200">
-                <action android:name="BC_NORMAL"></action>
+            <intent-filter android:priority="200">
+                <action android:name="BC_NORMAL" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".broadcast.MyReciever2">
-            <intent-filter
-                android:priority="100">
-                <action android:name="BC_NORMAL"></action>
+            <intent-filter android:priority="100">
+                <action android:name="BC_NORMAL" />
             </intent-filter>
         </receiver>
 
+        <activity android:name=".service.ServiceActivity"></activity>
+        <service android:name=".service.MyStartService"></service>
+        <service android:name=".service.MyBindService"></service>
     </application>
 
 </manifest>

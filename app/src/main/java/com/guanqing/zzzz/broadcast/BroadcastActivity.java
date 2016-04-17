@@ -20,9 +20,9 @@ public class BroadcastActivity extends AppCompatActivity {
 
         //reciever registered dynamically has higher priority
         //but only registered after running the codes
-        IntentFilter filter = new IntentFilter("BC_NORMAL");
+        /*IntentFilter filter = new IntentFilter("BC_NORMAL");
         MyReciever2 reciever = new MyReciever2();
-        registerReceiver(reciever, filter);
+        registerReceiver(reciever, filter);*/
     }
 
     public void sendBroadcast(View v){

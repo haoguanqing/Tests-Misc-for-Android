@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.guanqing.zzzz.broadcast.BroadcastActivity;
+import com.guanqing.zzzz.db.ZhihuDB;
+import com.guanqing.zzzz.service.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button button_bmob = (Button)findViewById(R.id.bmob);
+        Button button_bmob = (Button)findViewById(R.id.login);
         button_bmob.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -100,6 +102,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, BroadcastActivity.class));
+            }
+        });
+
+        Button button_service = (Button)findViewById(R.id.service);
+        button_service.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ServiceActivity.class));
             }
         });
     }

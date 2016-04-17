@@ -34,8 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Bmob"
-            android:id="@+id/bmob"/>
+            android:text="Login"
+            android:id="@+id/login"/>
 
         <Button
             android:layout_width="match_parent"
@@ -65,12 +65,12 @@
             android:text="broadcast"
             android:id="@+id/broadcast"/>
 
-        <com.wang.avi.AVLoadingIndicatorView
-            android:layout_marginTop="4dp"
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:indicator_color="@android:color/darker_gray"
-            app:indicator="Pacman"/>
+            android:layout_marginTop="4dp"
+            android:text="service"
+            android:id="@+id/service"/>
 
     </LinearLayout>
 

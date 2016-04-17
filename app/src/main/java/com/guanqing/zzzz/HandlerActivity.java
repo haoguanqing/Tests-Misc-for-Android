@@ -13,14 +13,14 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * a simple counter implemented using thread and handler
+ * maintain the status after device rotation
+ */
 public class HandlerActivity extends AppCompatActivity {
-
-    @Bind(R.id.tvThread)
-    TextView tvThread;
-    @Bind(R.id.btnThread)
-    Button btnStart;
-    @Bind(R.id.btnThread2)
-    Button btnStop;
+    @Bind(R.id.tvThread) TextView tvThread;
+    @Bind(R.id.btnThread) Button btnStart;
+    @Bind(R.id.btnThread2) Button btnStop;
 
     Handler handler;
     private Thread thread;
@@ -35,8 +35,8 @@ public class HandlerActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         handler = new Handler(Looper.getMainLooper());
-
         setListeners();
+
         if (savedInstanceState != null){
             count = savedInstanceState.getInt("COUNT");
             isRunning = savedInstanceState.getBoolean("INTERRUPTED");
@@ -107,8 +107,8 @@ public class HandlerActivity extends AppCompatActivity {
             android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
 
             try {
-                while (i < 3600) {
-                    Thread.sleep(200);
+                while (i < 36000) {
+                    Thread.sleep(100);
                     Log.d("HGQ", i++ + "");
 
                     handler.post(new Runnable() {

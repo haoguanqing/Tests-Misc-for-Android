@@ -1,4 +1,4 @@
-package com.guanqing.zzzz;
+package com.guanqing.zzzz.db;
 
 import android.content.Context;
 import android.database.Cursor;
